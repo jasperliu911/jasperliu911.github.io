@@ -7,32 +7,241 @@
 </head>
 
 <body class="glass-bg">
+  <div id="jsi-cherry-container" class="container"></div>
   <p style="text-align: center;position: absolute;top: 20%;left: 27%;">
     <canvas id="c" height="1200" width="800"></canvas>
-    <h1 class="title gradient-flow">一朵玫瑰献给</h1>
-    <h2 class="title sparkle-text">Rachel 🌾</h2>
+    <h1 class="title gradient-flow">一朵玫瑰献给Rachel</h1>
   </p>
   <script>
     var b = document.body;
     var c = document.getElementsByTagName('canvas')[0];
     var a = c.getContext('2d');
     document.body.clientWidth;
-  </script>
-  <script>
-    // start of submission //
-    with (m = Math) C = cos, S = sin, P = pow, R = random; 
-    c.width = c.height = f = 600; 
-    h = -250; 
-    function p(a, b, c) { 
-      if (c > 60) 
-        return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a]; 
-        A = a * 2 - 1; 
-        B = b * 2 - 1; 
-        if (A * A + B * B < 1) { if (c > 37) { n = (j = c & 1) ? 6 : 4; o = .5 / (a + .01) + C(b * 125) * 3 - a * 300; w = b * h; return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) * 99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((o * (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w * 3e-6] } if (c > 32) { c = c * 1.16 - .15; o = a * 45 - 20; w = b * b * h; z = o * S(c) + w * C(c) + 620; return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((1 - (A * A)), 7) * .15 + .3) * b, b * .7] } o = A * (2 - b) * (80 - c * 2); w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2; z = o * S(c) + w * C(c) + 700; return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 + a * .1, P((1 - b), 20) / 4 + .05] } } setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}', 0)
-    // end of submission //
+
+      with (m = Math) C = cos, S = sin, P = pow, R = random; 
+      c.width = c.height = f = 600; 
+      h = -250; 
+      function p(a, b, c) { 
+        if (c > 60) 
+          return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a]; 
+          A = a * 2 - 1; 
+          B = b * 2 - 1; 
+          if (A * A + B * B < 1) { if (c > 37) { n = (j = c & 1) ? 6 : 4; o = .5 / (a + .01) + C(b * 125) * 3 - a * 300; w = b * h; return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) * 99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((o * (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w * 3e-6] } if (c > 32) { c = c * 1.16 - .15; o = a * 45 - 20; w = b * b * h; z = o * S(c) + w * C(c) + 620; return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((1 - (A * A)), 7) * .15 + .3) * b, b * .7] } o = A * (2 - b) * (80 - c * 2); w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2; z = o * S(c) + w * C(c) + 700; return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 + a * .1, P((1 - b), 20) / 4 + .05] } } setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}', 0)
   </script><br>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+      var RENDERER = {
+	INIT_CHERRY_BLOSSOM_COUNT : 30,
+	MAX_ADDING_INTERVAL : 10,
+	
+	init : function(){
+		this.setParameters();
+		this.reconstructMethods();
+		this.createCherries();
+		this.render();
+	},
+	setParameters : function(){
+		this.$container = $('#jsi-cherry-container');
+		this.width = this.$container.width();
+		this.height = this.$container.height();
+		this.context = $('<canvas />').attr({width : this.width, height : this.height}).appendTo(this.$container).get(0).getContext('2d');
+		this.cherries = [];
+		this.maxAddingInterval = Math.round(this.MAX_ADDING_INTERVAL * 1000 / this.width);
+		this.addingInterval = this.maxAddingInterval;
+	},
+	reconstructMethods : function(){
+		this.render = this.render.bind(this);
+	},
+	createCherries : function(){
+		for(var i = 0, length = Math.round(this.INIT_CHERRY_BLOSSOM_COUNT * this.width / 1000); i < length; i++){
+			this.cherries.push(new CHERRY_BLOSSOM(this, true));
+		}
+	},
+	render : function(){
+		requestAnimationFrame(this.render);
+		this.context.clearRect(0, 0, this.width, this.height);
+		
+		this.cherries.sort(function(cherry1, cherry2){
+			return cherry1.z - cherry2.z;
+		});
+		for(var i = this.cherries.length - 1; i >= 0; i--){
+			if(!this.cherries[i].render(this.context)){
+				this.cherries.splice(i, 1);
+			}
+		}
+		if(--this.addingInterval == 0){
+			this.addingInterval = this.maxAddingInterval;
+			this.cherries.push(new CHERRY_BLOSSOM(this, false));
+		}
+	}
+};
+var CHERRY_BLOSSOM = function(renderer, isRandom){
+	this.renderer = renderer;
+	this.init(isRandom);
+};
+CHERRY_BLOSSOM.prototype = {
+	FOCUS_POSITION : 300,
+	FAR_LIMIT : 600,
+	MAX_RIPPLE_COUNT : 100,
+	RIPPLE_RADIUS : 100,
+	SURFACE_RATE : 0.5,
+	SINK_OFFSET : 20,
+	
+	init : function(isRandom){
+		this.x = this.getRandomValue(-this.renderer.width, this.renderer.width);
+		this.y = isRandom ? this.getRandomValue(0, this.renderer.height) : this.renderer.height * 1.5;
+		this.z = this.getRandomValue(0, this.FAR_LIMIT);
+		this.vx = this.getRandomValue(-2, 2);
+		this.vy = -2;
+		this.theta = this.getRandomValue(0, Math.PI * 2);
+		this.phi = this.getRandomValue(0, Math.PI * 2);
+		this.psi = 0;
+		this.dpsi = this.getRandomValue(Math.PI / 600, Math.PI / 300);
+		this.opacity = 0;
+		this.endTheta = false;
+		this.endPhi = false;
+		this.rippleCount = 0;
+		
+		var axis = this.getAxis(),
+			theta = this.theta + Math.ceil(-(this.y + this.renderer.height * this.SURFACE_RATE) / this.vy) * Math.PI / 500;
+		theta %= Math.PI * 2;
+		
+		this.offsetY = 40 * ((theta <= Math.PI / 2 || theta >= Math.PI * 3 / 2) ? -1 : 1);
+		this.thresholdY = this.renderer.height / 2 + this.renderer.height * this.SURFACE_RATE * axis.rate;
+    this.entityColor = this.renderer.context.createRadialGradient(0, 40, 0, 0, 40, 80);
+		this.entityColor.addColorStop(0, 'hsl(310, 60%, ' + 65 * (0.3 + axis.rate) + '%)');
+		this.entityColor.addColorStop(0.05, 'hsl(310, 40%,' + 70 * (0.3 + axis.rate) + '%)');
+		this.entityColor.addColorStop(1, 'hsl(310, 30%, ' + 80 * (0.3 + axis.rate) + '%)');
+		this.shadowColor = this.renderer.context.createRadialGradient(0, 40, 0, 0, 40, 80);
+    this.shadowColor.addColorStop(0, 'hsl(310, 30%, ' + 85 * (0.3 + axis.rate) + '%)');
+		this.shadowColor.addColorStop(0.05, 'hsl(310, 25%,' + 80 * (0.3 + axis.rate) + '%)');
+		this.shadowColor.addColorStop(1, 'hsl(310, 20%, ' + 75 * (0.3 + axis.rate) + '%)');
+
+	},
+	getRandomValue : function(min, max){
+		return min + (max - min) * Math.random();
+	},
+	getAxis : function(){
+		var rate = this.FOCUS_POSITION / (this.z + this.FOCUS_POSITION),
+			x = this.renderer.width / 2 + this.x * rate,
+			y = this.renderer.height / 2 - this.y * rate;
+		return {rate : rate, x : x, y : y};
+	},
+	renderCherry : function(context, axis){
+		context.beginPath();
+		context.moveTo(0, 40);
+		context.bezierCurveTo(-60, 20, -10, -60, 0, -20);
+		context.bezierCurveTo(10, -60, 60, 20, 0, 40);
+		context.fill();
+		
+		for(var i = -4; i < 4; i++){
+			context.beginPath();
+			context.moveTo(0, 40);
+			context.quadraticCurveTo(i * 12, 10, i * 4, -24 + Math.abs(i) * 2);
+			context.stroke();
+		}
+	},
+	render : function(context){
+		var axis = this.getAxis();
+		
+		if(axis.y == this.thresholdY && this.rippleCount < this.MAX_RIPPLE_COUNT){
+			context.save();
+			context.lineWidth = 2;
+			context.strokeStyle = 'hsla(0, 0%, 100%, ' + (this.MAX_RIPPLE_COUNT - this.rippleCount) / this.MAX_RIPPLE_COUNT + ')';
+			context.translate(axis.x + this.offsetY * axis.rate * (this.theta <= Math.PI ? -1 : 1), axis.y);
+			context.scale(1, 0.3);
+			context.beginPath();
+			context.arc(0, 0, this.rippleCount / this.MAX_RIPPLE_COUNT * this.RIPPLE_RADIUS * axis.rate, 0, Math.PI * 2, false);
+			context.stroke();
+			context.restore();
+			this.rippleCount++;
+		}
+		if(axis.y < this.thresholdY || (!this.endTheta || !this.endPhi)){
+			if(this.y <= 0){
+				this.opacity = Math.min(this.opacity + 0.01, 1);
+			}
+			context.save();
+			context.globalAlpha = this.opacity;
+			context.fillStyle = this.shadowColor;
+			context.strokeStyle = 'hsl(330, 30%,' + 40 * (0.3 + axis.rate) + '%)';
+			context.translate(axis.x, Math.max(axis.y, this.thresholdY + this.thresholdY - axis.y));
+			context.rotate(Math.PI - this.theta);
+			context.scale(axis.rate * -Math.sin(this.phi), axis.rate);
+			context.translate(0, this.offsetY);
+			this.renderCherry(context, axis);
+			context.restore();
+		}
+		context.save();
+		context.fillStyle = this.entityColor;
+		context.strokeStyle = 'hsl(330, 40%,' + 70 * (0.3 + axis.rate) + '%)';
+		context.translate(axis.x, axis.y + Math.abs(this.SINK_OFFSET * Math.sin(this.psi) * axis.rate));
+		context.rotate(this.theta);
+		context.scale(axis.rate * Math.sin(this.phi), axis.rate);
+		context.translate(0, this.offsetY);
+		this.renderCherry(context, axis);
+		context.restore();
+		
+		if(this.y <= -this.renderer.height / 4){
+			if(!this.endTheta){
+				for(var theta = Math.PI / 2, end = Math.PI * 3 / 2; theta <= end; theta += Math.PI){
+					if(this.theta < theta && this.theta + Math.PI / 200 > theta){
+						this.theta = theta;
+						this.endTheta = true;
+						break;
+					}
+				}
+			}
+			if(!this.endPhi){
+				for(var phi = Math.PI / 8, end = Math.PI * 7 / 8; phi <= end; phi += Math.PI * 3 / 4){
+					if(this.phi < phi && this.phi + Math.PI / 200 > phi){
+						this.phi = Math.PI / 8;
+						this.endPhi = true;
+						break;
+					}
+				}
+			}
+		}
+		if(!this.endTheta){
+			if(axis.y == this.thresholdY){
+				this.theta += Math.PI / 200 * ((this.theta < Math.PI / 2 || (this.theta >= Math.PI && this.theta < Math.PI * 3 / 2)) ? 1 : -1);
+			}else{
+				this.theta += Math.PI / 500;
+			}
+			this.theta %= Math.PI * 2;
+		}
+		if(this.endPhi){
+			if(this.rippleCount == this.MAX_RIPPLE_COUNT){
+				this.psi += this.dpsi;
+				this.psi %= Math.PI * 2;
+			}
+		}else{
+			this.phi += Math.PI / ((axis.y == this.thresholdY) ? 200 : 500);
+			this.phi %= Math.PI;
+		}
+		if(this.y <= -this.renderer.height * this.SURFACE_RATE){
+			this.x += 2;
+			this.y = -this.renderer.height * this.SURFACE_RATE;
+		}else{
+			this.x += this.vx;
+			this.y += this.vy;
+		}
+		return this.z > -this.FOCUS_POSITION && this.z < this.FAR_LIMIT && this.x < this.renderer.width * 1.5;
+	}
+};
+$(function(){
+  setTimeout(function(){
+    RENDERER.init();
+  }, 3000);
+});
+  </script>
 </body>
 <style>
+  .container{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
   :root {
             --primary-color: #2a2a2a;
             --secondary-color: #ff6b6b;
@@ -55,7 +264,7 @@
             position: relative;
             padding: 2rem;
             border-radius: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(219, 169, 169, 0.1);
             backdrop-filter: 
                 blur(10px) 
                 brightness(0.9) 
@@ -76,40 +285,22 @@
   }
   /* 渐变流动文字效果 */
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% { background-position: 0% 50%;opacity: 1; transform: scale(1); }
+  50% { background-position: 50% 50%;opacity: 0.5; transform: scale(1.2); }
+  100% { background-position: 100% 50%;opacity: 1; transform: scale(1);}
 }
 
 .gradient-flow {
   font-family: 'Arial Black', sans-serif;
-  font-size: 6em;
+  font-size: 5em;
   color: transparent;
-  background: linear-gradient(to right, #ff6b6b, #4ecdc4, #34a853);
+  background: linear-gradient(to right, #ff6b6b, #c2541d, #2dbfbf);
   background-clip: text;
   -webkit-background-clip: text;
   animation: gradientFlow 5s infinite linear;
   margin: 50px;
 }
 
-/* 动态渐变闪烁效果 */
-@keyframes sparkle {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.sparkle-text {
-  font-family: 'Impact', sans-serif;
-  font-size: 3em;
-  background: radial-gradient(circle, #ffffff 0%, #ff0000 70%, #0000ff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: sparkle 2s infinite ease-in-out;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
 
 /* 响应式布局 */
 body {

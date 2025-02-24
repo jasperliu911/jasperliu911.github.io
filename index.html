@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gift to Rachel</title>
+  <meta charset="utf-8">
+</head>
+
+<body class="glass-bg">
+  <p style="text-align: center;position: absolute;top: 20%;left: 27%;">
+    <canvas id="c" height="1200" width="800"></canvas>
+    <h1 class="title gradient-flow">一朵玫瑰献给</h1>
+    <h2 class="title sparkle-text">Rachel 🌾</h2>
+  </p>
+  <script>
+    var b = document.body;
+    var c = document.getElementsByTagName('canvas')[0];
+    var a = c.getContext('2d');
+    document.body.clientWidth;
+  </script>
+  <script>
+    // start of submission //
+    with (m = Math) C = cos, S = sin, P = pow, R = random; 
+    c.width = c.height = f = 600; 
+    h = -250; 
+    function p(a, b, c) { 
+      if (c > 60) 
+        return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a]; 
+        A = a * 2 - 1; 
+        B = b * 2 - 1; 
+        if (A * A + B * B < 1) { if (c > 37) { n = (j = c & 1) ? 6 : 4; o = .5 / (a + .01) + C(b * 125) * 3 - a * 300; w = b * h; return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) * 99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((o * (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w * 3e-6] } if (c > 32) { c = c * 1.16 - .15; o = a * 45 - 20; w = b * b * h; z = o * S(c) + w * C(c) + 620; return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((1 - (A * A)), 7) * .15 + .3) * b, b * .7] } o = A * (2 - b) * (80 - c * 2); w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2; z = o * S(c) + w * C(c) + 700; return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 + a * .1, P((1 - b), 20) / 4 + .05] } } setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}', 0)
+    // end of submission //
+  </script><br>
+</body>
+<style>
+  :root {
+            --primary-color: #2a2a2a;
+            --secondary-color: #ff6b6b;
+            --metallic-gray: #d3d3d3;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--primary-color);
+        }
+
+        /* 半透明玻璃纹理背景 */
+        .glass-bg {
+            position: relative;
+            padding: 2rem;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: 
+                blur(10px) 
+                brightness(0.9) 
+                contrast(1.1);
+            
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.1), 
+                0 -4px 8px rgba(0,0,0,0.1);
+        }
+  .title{
+    font-size: 8em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+  }
+  h2.title{
+    top: 60%;
+  }
+  /* 渐变流动文字效果 */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.gradient-flow {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 6em;
+  color: transparent;
+  background: linear-gradient(to right, #ff6b6b, #4ecdc4, #34a853);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientFlow 5s infinite linear;
+  margin: 50px;
+}
+
+/* 动态渐变闪烁效果 */
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle-text {
+  font-family: 'Impact', sans-serif;
+  font-size: 3em;
+  background: radial-gradient(circle, #ffffff 0%, #ff0000 70%, #0000ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: sparkle 2s infinite ease-in-out;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* 响应式布局 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #2c3e50;
+}
+
+h1 {
+  margin: 0;
+}
+</style>
+
+</html>

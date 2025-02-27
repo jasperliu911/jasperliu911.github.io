@@ -1,7 +1,7 @@
 /* styles.css */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a11cb66, #2575fc6e);
+  background: linear-gradient(92deg, #6a11cb66, #2575fc6e);
   margin: 0;
   padding: 0;
   display: flex;
@@ -9,6 +9,7 @@ body {
   align-items: center;
   height: 100vh;
   color: #333;
+  overflow: hidden;
 }
 .marquee {
   white-space: nowrap;
@@ -68,12 +69,12 @@ body {
   height: 75vh;
   overflow-x: hidden;
   position: relative;
-  background: url('https://thirdwx.qlogo.cn/mmopen/vi_32/lWfF1X3ty2YlMcHuPSRzTIV0AzIuRo1d8Y0iaIQ31AfiaWC74iakTw51uTcQHy4vsKLAV2zgsicwCcFoZr4O173OgQ/132') no-repeat center 82% / cover;
+  /* background: url('https://pic.netbian.com/uploads/allimg/250121/170119-1737450079d6a3.jpg') no-repeat center 62% / cover;
   background-size: 100% 100%;
   background-attachment: fixed;
   background-size: contain;
   background-color: #f9f9f9;
-  background-blend-mode: multiply;
+  background-blend-mode: multiply; */
 }
 .chat-box::before {
   content: '';
@@ -84,12 +85,47 @@ body {
   height: 100%;
   background: rgba(255, 255, 255, 0.95); 
 }
+.message-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+.message-item.user{
+  justify-content: flex-end;
+}
+.head-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+}
+.ai-icon.head-icon {
+  top: -30px;
+  left: -5px;
+}
+.user-icon.head-icon {
+  top: -10px;
+  right: -15px;;
+  order: 2;
+}
+.head-icon img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: 2px;
+}
 
 .message {
   margin-bottom: 12px;
   padding: 10px 16px;
   border-radius: 12px;
-  max-width: 80%;
+  max-width: 70%;
   position: relative;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -97,7 +133,7 @@ body {
 .user-message {
   background-color: #007bff;
   color: #fff;
-  left: 10%;
+  order: 1;
 }
 .user-message::after{
   content: '';
@@ -130,7 +166,7 @@ body {
 
 .input-area {
   display: flex;
-  padding: 30px 10px;
+  padding: 20px 10px 50px;;
   background-color: #fff;
   border-top: 1px solid #e0e0e0;
 }

@@ -4,7 +4,7 @@ const todayUseTimes = {
   date: new Date().toLocaleDateString('zh-CN', options),
   times: useTimes,
 };
-if(JSON.parse(sessionStorage.getItem('useTimes')) || 
+if(!JSON.parse(sessionStorage.getItem('useTimes')) || 
 JSON.parse(sessionStorage.getItem('useTimes'))?.date !== new Date().toLocaleDateString('zh-CN', options)) {
     sessionStorage.setItem('useTimes', JSON.stringify(todayUseTimes));
 }

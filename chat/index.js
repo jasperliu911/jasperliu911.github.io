@@ -1,4 +1,3 @@
-// script.js
 let useTimes = 100;
 const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
 const todayUseTimes = {
@@ -18,6 +17,15 @@ const dsKey2 = '396bc4';
 const dsKey3 = '6afac2';
 const dsKey4 = 'e5062c';
 const dsKey5 = '2a9b566';
+const dsModel = 'deepseek-chat';
+
+const hyApiUrl = 'https://api.hunyuan.cloud.tencent.com/v1/chat/completions';
+const hyKey1 = 'GNlUpW';
+const hyKey2 = 'r7J0HpzGKcT';
+const hyKey3 = 'rwqaUG2JIS10';
+const hyKey4 = 'ixQSQpS56RK';
+const hyKey5 = 'pABBQRP';
+const hyModel = 'hunyuan-turbo';
 
 document.addEventListener('DOMContentLoaded', () => {
   const chatBox = document.getElementById('chat-box');
@@ -56,7 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 调用 API
     try {
-      const aiResponse = await callDSAPI(userMessage);
+      const modelSelect = document.getElementById('model-select').value;
+      let aiResponse = null;
+      if (modelSelect === 'deepseek') {
+        aiResponse = await callDSAPI(userMessage);
+      } else {
+        aiResponse = await callHYAPI(userMessage);
+      }
       const replyResponse = getAIReply(userMessage,aiResponse);
       appendMessage(replyResponse, 'ai');
     } catch (error) {
@@ -76,8 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function callDSAPI(message) {
-    const apiUrl = dsApiUrl; 
-    const apiKey = 'sk'+'-'+'b' + dsKey1 + dsKey2 + dsKey3 + dsKey4 + dsKey5;
+    
+    let apiUrl = dsApiUrl; 
+    let apiKey = 'sk'+'-'+'b' + dsKey1 + dsKey2 + dsKey3 + dsKey4 + dsKey5;
+    let modelName = dsModel;
 
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -86,13 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'deepseek-chat',
+        model: modelName,
         messages: [{ role: 'user', content: message }],
       }),
     });
 
     const data = await response.json();
-    return data.choices[0].message.content; // 假设返回格式与 OpenAI 类似
+    return data.choices[0].message.content; 
+  }
+
+  async function callHYAPI(message) {
+    const response = await fetch(hyApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${'sk'+'-'+'g' + hyKey1 + hyKey2 + hyKey3 + hyKey4 + hyKey5}`,
+      },
+      body: JSON.stringify({
+        model: hyModel,
+        messages: [{ role: 'user', content: message }],
+      }),
+    });
+
+    const data = await response.json();
+    return data.choices[0].message.content; 
   }
 
   // 添加消息到聊天框

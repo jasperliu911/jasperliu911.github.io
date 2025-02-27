@@ -65,7 +65,7 @@ body {
   padding: 16px;
   overflow-y: auto;
   background-color: #f9f9f9;
-  height: 80vh;
+  height: 75vh;
   overflow-x: hidden;
   position: relative;
   background: url('https://thirdwx.qlogo.cn/mmopen/vi_32/lWfF1X3ty2YlMcHuPSRzTIV0AzIuRo1d8Y0iaIQ31AfiaWC74iakTw51uTcQHy4vsKLAV2zgsicwCcFoZr4O173OgQ/132') no-repeat center 82% / cover;
@@ -130,7 +130,7 @@ body {
 
 .input-area {
   display: flex;
-  padding: 20px;
+  padding: 30px 10px;
   background-color: #fff;
   border-top: 1px solid #e0e0e0;
 }

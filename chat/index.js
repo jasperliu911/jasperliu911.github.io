@@ -14,8 +14,8 @@ document.getElementById('tip_notice').innerHTML = `由于机器人前期研发�
 
 const dsApiUrl = 'https://api.deepseek.com/v1/chat/completions';
 const dsKey1 = '55e871';
-const dskey2 = '396bc4';
-const dskey3 = '6afac2';
+const dsKey2 = '396bc4';
+const dsKey3 = '6afac2';
 const dsKey4 = 'e5062c';
 const dsKey5 = '2a9b566';
 

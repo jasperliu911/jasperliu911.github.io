@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 模拟 DeepSeek API 调用
   async function callDeepSeekAPI(message) {
     // 替换为实际的 DeepSeek API 调用
-    const apiUrl = 'https://api.deepseek.com/v1/chat/completions'; // 示例 URL
-    const apiKey = 'sk-b55e871396bc46afac2e5062c2a9b566'; // 替换为你的 API Key
+    const apiUrl = ''; 
+    const apiKey = ''; 
 
     const response = await fetch(apiUrl, {
       method: 'POST',

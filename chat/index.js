@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // 禁止鼠标滚轮缩放
+  window.addEventListener('wheel', (event) => {
+    if (event.ctrlKey) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  // 禁止手势缩放
+  window.addEventListener('gesturechange', (event) => {
+    event.preventDefault();
+  });
+});
+
 let useTimes = 100;
 const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
 const todayUseTimes = {

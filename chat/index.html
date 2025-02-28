@@ -12,24 +12,25 @@
       <div class="marquee">
         <span id="tip_notice"></span>
       </div>
-      <h2>AI 助手 - Jasper</h2>
     </div>
     <div class="main-container">
       <div class="chat-container">
         <div id="chat-box" class="chat-box"></div>
-        <div class="change-model">
-          <span class="model-name">模型：</span>
-          <select id="model-select">
-            <option value="deepseek">DeepSeek</option>
-            <option value="hunyuan">腾讯混元</option>
-          </select>
-        </div>
-        <div class="input-area">
-          <input type="text" id="user-input" placeholder="请输入你的问题..." />
-          <button id="send-btn">
-            <span id="send-text">发送</span>
-            <span id="loading-spinner" class="hidden">⌛</span>
-          </button>
+        <div class="bottom-wrap">
+          <div class="change-model">
+            <span class="model-name">模型：</span>
+            <select id="model-select">
+              <option value="deepseek">DeepSeek</option>
+              <option value="hunyuan">腾讯混元</option>
+            </select>
+          </div>
+          <div class="input-area">
+            <input type="text" id="user-input" placeholder="请输入你的问题..." />
+            <button id="send-btn">
+              <span id="send-text">发送</span>
+              <span id="loading-spinner" class="hidden">⌛</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

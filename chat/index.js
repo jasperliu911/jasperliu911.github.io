@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendText = document.getElementById('send-text');
   const loadingSpinner = document.getElementById('loading-spinner');
 
-  appendMessage('Hello! 小可爱(dsb),今天过的好吗，欢迎来和Jasper一起来聊聊天吧！😄', 'ai');
+  appendMessage('Hello! ,今天过的好吗，快来和Jasper一起聊聊天吧！😄', 'ai');
 
   // 发送消息
   sendBtn.addEventListener('click', async () => {   

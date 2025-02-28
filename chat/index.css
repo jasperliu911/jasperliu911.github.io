@@ -87,7 +87,6 @@ body {
 }
 .message-item {
   display: flex;
-  align-items: center;
   margin-bottom: 12px;
   position: relative;
   z-index: 2;
@@ -105,11 +104,11 @@ body {
   text-align: center;
 }
 .ai-icon.head-icon {
-  top: -30px;
+  top: 0px;
   left: -5px;
 }
 .user-icon.head-icon {
-  top: -10px;
+  top: 0px;
   right: -15px;;
   order: 2;
 }
@@ -163,12 +162,19 @@ body {
   border-width: 8px 10px 8px 0; /* 调整小三角大小 */
   border-color: transparent #e0e0e0 transparent transparent; /* 小三角颜色 */
 }
-
+.bottom-wrap{
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fff;
+  padding: 20px 10px 50px;
+}
 .input-area {
   display: flex;
-  padding: 20px 10px 50px;;
-  background-color: #fff;
-  border-top: 1px solid #e0e0e0;
+}
+.change-model{
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 input[type="text"] {

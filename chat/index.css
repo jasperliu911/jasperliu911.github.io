@@ -10,6 +10,7 @@ body {
   height: 100vh;
   color: #333;
   overflow: hidden;
+  touch-action: none;
 }
 .marquee {
   white-space: nowrap;

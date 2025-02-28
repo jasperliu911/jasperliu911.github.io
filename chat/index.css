@@ -129,6 +129,16 @@ body {
   position: relative;
   animation: fadeIn 0.3s ease-in-out;
 }
+pre{
+  background-color: #fff;
+  color: #333;
+  order: 2;
+  overflow-x: auto;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 12px;
+}
 
 .user-message {
   background-color: #007bff;

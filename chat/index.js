@@ -23,7 +23,7 @@ JSON.parse(sessionStorage.getItem('useTimes'))?.date !== new Date().toLocaleDate
     sessionStorage.setItem('useTimes', JSON.stringify(todayUseTimes));
 }
 
-document.getElementById('tip_notice').innerHTML = `由于机器人前期研发阶段，经费有限，故每天使用次数有限，今日使用次数：${JSON.parse(sessionStorage.getItem('useTimes')).times}次，望理解！`;
+// document.getElementById('tip_notice').innerHTML = `由于机器人前期研发阶段，经费有限，故每天使用次数有限，今日使用次数：${JSON.parse(sessionStorage.getItem('useTimes')).times}次，望理解！`;
 
 const dsApiUrl = 'https://api.deepseek.com/v1/chat/completions';
 const dsKey1 = '55e871';
@@ -144,13 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 添加消息到聊天框
   function appendMessage(message, sender) {
+    const md = window.markdownit();
+    const htmlContent = md.render(message);
     const headIcon = sender === 'ai' ? `<img src="https://thirdwx.qlogo.cn/mmopen/vi_32/lWfF1X3ty2YlMcHuPSRzTIV0AzIuRo1d8Y0iaIQ31AfiaWC74iakTw51uTcQHy4vsKLAV2zgsicwCcFoZr4O173OgQ/132" alt="head-icon" />` : `<svg t="1740646831143" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9527" width="30" height="30" data-spm-anchor-id="a313x.search_index.0.i2.72cd3a81nYiSyu"><path d="M573.44 122.88c98.304 0 180.224 81.92 180.224 178.176 0 102.4-81.92 178.176-180.224 178.176s-180.224-81.92-180.224-178.176C389.12 204.8 471.04 122.88 573.44 122.88z" fill="#EE9B9B" p-id="9528"></path><path d="M651.264 497.664c71.68-47.104 122.88-133.12 122.88-229.376C774.144 122.88 655.36 0 512 0S251.904 122.88 251.904 270.336c0 98.304 51.2 180.224 122.88 229.376C190.464 563.2 57.344 737.28 51.2 942.08c0 16.384 16.384 30.72 30.72 30.72s30.72-16.384 30.72-30.72c6.144-219.136 184.32-399.36 399.36-399.36S907.264 722.944 911.36 942.08c0 16.384 16.384 30.72 30.72 30.72 16.384 0 30.72-16.384 30.72-30.72-6.144-208.896-139.264-382.976-321.536-444.416M313.344 270.336c0-112.64 88.064-204.8 200.704-204.8 108.544 0 200.704 92.16 200.704 204.8s-88.064 204.8-200.704 204.8c-108.544 0-200.704-92.16-200.704-204.8" fill="#f39092" p-id="9529" data-spm-anchor-id="a313x.search_index.0.i3.72cd3a81nYiSyu" class="selected"></path></svg>`;
     const messageHtml = 
     `<div class="head-icon ${`${sender}-icon`}">
       ${headIcon}
     </div>
     <div class="message ${`${sender}-message`}">
-      ${message}
+      ${htmlContent}
     </div>`
     const messageDom = document.createElement('div');
     messageDom.className = 'message-item' + ' ' + sender;

@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人网站</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">Logo</div>
+            <div class="logo">
+                <span class="logo-text">琉璃Jasper</span>
+                <div class="logo-decoration"></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#about">关于</a></li>
@@ -22,16 +26,70 @@
     <main>
         <section id="hero" class="hero">
             <div class="hero-content">
-                <h1>欢迎来到我的网站</h1>
-                <p>这里是一个充满创意和激情的空间</p>
-                <button class="cta-button">了解更多</button>
+                <div class="hero-avatar">
+                    <img src="https://normal-database-1257734014.cos.ap-guangzhou.myqcloud.com/my_avatar.jpg" alt="个人头像">
+                    <div class="avatar-decoration"></div>
+                </div>
+                <h1>你好，我是<span class="highlight">琉璃Jasper</span></h1>
+                <p class="hero-subtitle">全栈开发工程师 / 产品设计师</p>
+                <p class="hero-description">专注于Web开发和人工智能领域，热爱创造优雅的用户体验</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary" onclick="scrollToProjects()">查看作品</button>
+                    <button class="cta-button secondary" onclick="scrollToContact()">联系我</button>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/jasperliu911" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:yolliujun@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=1102015906&site=qq&menu=yes" target="_blank" class="social-link">
+                        <i class="fab fa-qq"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="about" class="about">
             <h2>关于我</h2>
             <div class="about-content">
-                <p>这里是关于我的介绍，可以描述您的专业背景、兴趣爱好等。</p>
+                <div class="about-text">
+                    <p>热爱编程，专注于Web开发和人工智能领域。喜欢探索新技术，享受创造的过程。</p>
+                </div>
+                <div class="skills-container">
+                    <h3>技能专长</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">💻</div>
+                            <div class="skill-name">Web开发</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="skill-name">产品设计</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🎨</div>
+                            <div class="skill-name">UI设计</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="60"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🤖</div>
+                            <div class="skill-name">人工智能</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="50"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -39,16 +97,37 @@
             <h2>我的项目</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>项目一</h3>
-                    <p>项目描述</p>
+                    <div class="project-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>数据风险控制地图</h3>
+                    <p class="project-description">基于管理系统的数据风险可视化平台，支持多维度数据分析监控及流程化管理。</p>
+                    <div class="project-tech">
+                        <span>Vue</span>
+                        <span>Antd X6</span>
+                        <span>数据监控</span>
+                        <span>数据流向</span>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>项目二</h3>
-                    <p>项目描述</p>
+                    <div class="project-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>可视化工作流</h3>
+                    <p class="project-description">基于 AntdX6 Flow 的工作流设计器，支持自定义节点、连线规则和流程验证。</p>
+                    <div class="project-tech">
+                        <span>Vue</span>
+                        <span>Antd x6</span>
+                        <span>节点增强配置</span>
+                        <span>工作流</span>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>项目三</h3>
-                    <p>项目描述</p>
+                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>支持动态图表markDown</h3>
+                    <p class="project-description">增强型 Markdown 编辑器，支持实时渲染动态图表，集成多种数据可视化组件。</p>
+                    <div class="project-tech">
+                        <span>Vue3</span>
+                        <span>ECharts</span>
+                        <span>Markdown-it</span>
+                        <span>自定义语法</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -58,16 +137,17 @@
             <div class="contact-content">
                 <p>您可以通过以下方式联系我：</p>
                 <ul>
-                    <li>邮箱：your.email@example.com</li>
-                    <li>GitHub：your-github</li>
-                    <li>LinkedIn：your-linkedin</li>
+                    <li>邮箱：<a href="mailto:yolliujun@gmail.com">yolliujun@gmail.com</a></li>
+                    <li>GitHub：<a href="https://github.com/jasperliu911" target="_blank">https://github.com/jasperliu911</a></li>
+                    <li>QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=1102015906&site=qq&menu=yes" target="_blank">1102015906</a></li>
                 </ul>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 我的个人网站. All rights reserved.</p>
+        <p>&copy; 2024 JasperLiu. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html> 

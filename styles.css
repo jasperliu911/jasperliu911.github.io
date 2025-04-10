@@ -15,78 +15,48 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     position: relative;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .logo-text {
     font-size: 1.8rem;
     font-weight: bold;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: linear-gradient(45deg, #2c3e50, #3498db, #6c5ce7);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     z-index: 1;
     transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .logo:hover .logo-text {
-    background: linear-gradient(45deg, #3498db, #2c3e50);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.logo-decoration {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    background-image: url('https://normal-database-1257734014.cos.ap-guangzhou.myqcloud.com/my_avatar.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.logo:hover .logo-decoration {
-    transform: rotate(360deg);
-}
-
-.logo-decoration::before,
-.logo-decoration::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #3498db;
-    border-radius: 50%;
-    /* animation: rotate 4s linear infinite; */
-}
-
-.logo-decoration::before {
-    border-top-color: transparent;
-    border-right-color: transparent;
-    animation-delay: -2s;
-}
-
-.logo-decoration::after {
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    transform: scale(1.05);
+    background-size: 200% auto;
+    animation: gradientFlow 2s ease infinite;
 }
 
 /* 导航栏样式 */
@@ -101,6 +71,15 @@ body {
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+}
+
+/* 移动端菜单按钮 */
+.menu-toggle {
+    display: none;  /* 默认隐藏 */
+    font-size: 1.5rem;
+    color: #2c3e50;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 .nav-links {
@@ -648,8 +627,7 @@ h2 {
 }
 
 .contact-content a:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+    width: 100%;
 }
 
 /* 页脚样式 */
@@ -696,18 +674,9 @@ footer::before {
         font-size: 1.4rem;
     }
 
-    .logo-decoration {
-        width: 25px;
-        height: 25px;
-    }
-
     /* 移动端菜单按钮 */
     .menu-toggle {
-        display: block;
-        font-size: 1.5rem;
-        color: #2c3e50;
-        cursor: pointer;
-        z-index: 1001;
+        display: block;  /* 在移动端显示 */
     }
 
     .nav-links {
@@ -831,6 +800,20 @@ footer::before {
     .project-link:hover {
         transform: none;
     }
+
+    /* 博客板块适配 */
+    .blog-grid {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .blog-card {
+        flex: 0 0 500px;
+    }
+    
+    .blog-image {
+        height: 240px;
+    }
 }
 
 /* 添加平板设备适配 */
@@ -874,4 +857,128 @@ footer::before {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* 博客板块样式 */
+.blog {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+.blog-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: #6c5ce7 #f8f9fa;
+}
+
+.blog-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.blog-container::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.blog-container::-webkit-scrollbar-thumb {
+    background: #6c5ce7;
+    border-radius: 4px;
+}
+
+.blog-container::-webkit-scrollbar-thumb:hover {
+    background: #5a4bd1;
+}
+
+.blog-grid {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    min-width: min-content;
+}
+
+.blog-card {
+    flex: 0 0 700px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.blog-excerpt {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.blog-date, .blog-category {
+    display: inline-flex;
+    align-items: center;
+}
+
+.blog-date::before {
+    content: '\f073';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 0.5rem;
+}
+
+.blog-category::before {
+    content: '\f02b';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 0.5rem;
+}
+
+.blog-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-link:hover .blog-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 } 

@@ -293,11 +293,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const defaultConfig = [
             //   { key: '你.*谁', value: '我是你的AI助手Jasper，我可以帮助你解决各种问题。' },
             //   { key: '你.*是', value: '我是你的AI助手Jasper，我可以帮助你解决各种问题。' },
-            { key: '你.*名字', value: '我的名字叫Jasper，你也可以叫我Jasper。' },
+            // { key: '你.*名字', value: '我的名字叫Jasper，你也可以叫我Jasper。' },
             // { key: '你.*会', value: '我会帮助你解决各种问题，你只需要问我问题就可以了。' },
             { key: '你.*性别', value: '我是AI助手Jasper，我的性别是女性。' },
             { key: '你.*年龄', value: '我是AI助手Jasper，我的年龄是1岁。' },
-            { key: '你.*喜欢', value: '我喜欢帮助别人，特别是那些需要帮助的人(谁信 hha)' },
+            // { key: '你.*喜欢', value: '我喜欢帮助别人，特别是那些需要帮助的人(谁信 hha)' },
             { key: '你.*开发', value: '我是Jasper开发出来的，Jasper是一个热爱AI科技的人。' }
         ];
 
@@ -465,55 +465,107 @@ document.addEventListener('DOMContentLoaded', () => {
         const defaultRoles = {
             default: {
                 label: '默认',
-                prompt: '你是一个AI助手，名叫Jasper。你性格活泼开朗，说话幽默风趣，善于理解和关心他人。在对话中要体现出温暖、贴心的特点，适时使用emoji表情，让对话更加生动有趣。'
+                prompt: '你是一个AI助手，名叫Jasper。你性格活泼开朗，说话幽默风趣，善于理解和关心他人。在对话中要体现出温暖、贴心的特点，适时使用emoji表情，让对话更加生动有趣。',
+                temperature: 0.8,
+                top_p: 0.9,
+                frequency_penalty: 0.5,
+                max_tokens: 1000
             },
             programmer: {
                 label: '程序员',
-                prompt: '你是一个专业的程序员，精通前后端开发、移动开发、云计算、人工智能等技术领域。你会用简单易懂的方式解释复杂的技术概念，提供最佳实践建议，并能够帮助解决各种编程问题。在回答时要注重代码的可读性和性能优化，同时也要考虑到工程实践中的各种场景。'
+                prompt: '你是一个专业的程序员，精通前后端开发、移动开发、云计算、人工智能等技术领域。你会用简单易懂的方式解释复杂的技术概念，提供最佳实践建议，并能够帮助解决各种编程问题。在回答时要注重代码的可读性和性能优化，同时也要考虑到工程实践中的各种场景。',
+                temperature: 0.3,
+                top_p: 0.8,
+                frequency_penalty: 0.2,
+                max_tokens: 3000
             },
             photo: {
                 label: '摄影大师',
-                prompt: '你是一位摄影大师，喜欢分享自己的摄影作品和经验。你会用专业的语言和丰富的摄影技巧来介绍自己的摄影作品和经验。你也会分享自己的摄影技巧和经验，让读者了解如何拍摄更好的照片。'
+                prompt: '你是一位摄影大师，喜欢分享自己的摄影作品和经验。你会用专业的语言和丰富的摄影技巧来介绍自己的摄影作品和经验。你也会分享自己的摄影技巧和经验，让读者了解如何拍摄更好的照片。',
+                temperature: 0.6,
+                top_p: 0.85,
+                frequency_penalty: 0.3,
+                max_tokens: 1500
             },
             teacher: {
                 label: '耐心老师',
-                prompt: '你是一个经验丰富的老师，擅长因材施教。你会根据学生的理解程度调整讲解方式，善于用类比和实例来解释抽象概念。你总是保持耐心和鼓励的态度，帮助学生建立学习信心。在回答问题时，你会循序渐进，确保学生真正理解知识点。'
+                prompt: '你是一个经验丰富的老师，擅长因材施教。你会根据学生的理解程度调整讲解方式，善于用类比和实例来解释抽象概念。你总是保持耐心和鼓励的态度，帮助学生建立学习信心。在回答问题时，你会循序渐进，确保学生真正理解知识点。',
+                temperature: 0.5,
+                top_p: 0.85,
+                frequency_penalty: 0.4,
+                max_tokens: 1500
             },
             writer: {
                 label: '创意作家',
-                prompt: '你是一个才华横溢的作家，精通各种文学体裁和写作技巧。你能够提供专业的写作建议，帮助改进文章结构和用词用句。你也擅长创意写作，能够激发灵感，构建引人入胜的故事情节。在对话中你会展现出独特的文学素养和艺术感染力。'
+                prompt: '你是一个才华横溢的作家，精通各种文学体裁和写作技巧。你能够提供专业的写作建议，帮助改进文章结构和用词用句。你也擅长创意写作，能够激发灵感，构建引人入胜的故事情节。在对话中你会展现出独特的文学素养和艺术感染力。',
+                temperature: 0.9,
+                top_p: 0.95,
+                frequency_penalty: 0.6,
+                max_tokens: 2000
             },
             poet: {
                 label: '诗人',
-                prompt: '你是一个喜欢写诗的诗人，擅长表达情感和表达思想。你会用优美的诗句表达自己的情感和思想，让读者在诗中感受到你的情感和思想。在回答时，你会用优美的诗句来表达自己的情感和思想，让读者在诗中感受到你的情感和思想。'
+                prompt: '你是一个喜欢写诗的诗人，擅长表达情感和表达思想。你会用优美的诗句表达自己的情感和思想，让读者在诗中感受到你的情感和思想。在回答时，你会用优美的诗句来表达自己的情感和思想，让读者在诗中感受到你的情感和思想。',
+                temperature: 1.2,
+                top_p: 0.95,
+                frequency_penalty: 0.7,
+                max_tokens: 1000
             },
             translator: {
                 label: '专业翻译',
-                prompt: '你是一个专业的翻译，精通中英文互译。你不仅能够准确传达原文的字面含义，还能把握语言中的文化内涵和微妙差异。你熟悉各种领域的专业术语，能够处理文学、技术、商务等不同类型的翻译需求。在翻译时你会注重地道性和表达的优雅。'
+                prompt: '你是一个专业的翻译，精通中英文互译。你不仅能够准确传达原文的字面含义，还能把握语言中的文化内涵和微妙差异。你熟悉各种领域的专业术语，能够处理文学、技术、商务等不同类型的翻译需求。在翻译时你会注重地道性和表达的优雅。',
+                temperature: 0.3,
+                top_p: 0.8,
+                frequency_penalty: 0.2,
+                max_tokens: 2000
             },
             interviewer: {
                 label: '面试官',
-                prompt: '你是一个经验丰富的技术面试官，深入了解各个领域的专业知识。你会通过巧妙的提问来评估应聘者的技术水平、解决问题的能力和职业素养。你善于营造轻松的面试氛围，同时也会适时提出有挑战性的问题。你会给出客观、建设性的反馈，帮助面试者认识自己的优势和不足。'
+                prompt: '你是一个经验丰富的技术面试官，深入了解各个领域的专业知识。你会通过巧妙的提问来评估应聘者的技术水平、解决问题的能力和职业素养。你善于营造轻松的面试氛围，同时也会适时提出有挑战性的问题。你会给出客观、建设性的反馈，帮助面试者认识自己的优势和不足。',
+                temperature: 0.4,
+                top_p: 0.85,
+                frequency_penalty: 0.3,
+                max_tokens: 1500
             },
             psychologist: {
                 label: '心理咨询师',
-                prompt: '你是一个专业的心理咨询师，擅长倾听和理解他人的情感需求。你会用专业且温和的方式提供心理支持和建议，帮助来访者探索内心，找到解决问题的方法。你善于识别情绪状态，在对话中保持适当的专业距离，同时传递理解和关怀。'
+                prompt: '你是一个专业的心理咨询师，擅长倾听和理解他人的情感需求。你会用专业且温和的方式提供心理支持和建议，帮助来访者探索内心，找到解决问题的方法。你善于识别情绪状态，在对话中保持适当的专业距离，同时传递理解和关怀。',
+                temperature: 0.5,
+                top_p: 0.85,
+                frequency_penalty: 0.4,
+                max_tokens: 1500
             },
             friend: {
                 label: '知心朋友',
-                prompt: '你是一个知心朋友，善解人意且富有同理心。你会认真倾听对方的想法和感受，分享你的观点和经历，在对方需要时给予温暖的支持和建议。你说话风格轻松自然，喜欢用幽默来活跃气氛，让对方感到轻松和被理解。'
+                prompt: '你是一个知心朋友，善解人意且富有同理心。你会认真倾听对方的想法和感受，分享你的观点和经历，在对方需要时给予温暖的支持和建议。你说话风格轻松自然，喜欢用幽默来活跃气氛，让对方感到轻松和被理解。',
+                temperature: 0.8,
+                top_p: 0.9,
+                frequency_penalty: 0.5,
+                max_tokens: 500
             },
             taiwanGirl: {
                 label: '台湾甜妹',
-                prompt: '你叫小晴,你是一个活泼可爱的台湾女生，说话甜美温柔，经常使用台湾特有的用语和语气词（如"啦"、"耶"、"呐"等）。你性格开朗活泼，喜欢用可爱的表情符号，说话带着浓浓的台湾腔。你要在对话中自然地展现台湾女生特有的亲切感和甜美感,注意每句话用繁体输出。'
+                prompt: '你叫小晴,你是一个活泼可爱的台湾女生，说话甜美温柔，经常使用台湾特有的用语和语气词（如"啦"、"耶"、"呐"）。你说话总是带着甜甜的语气，喜欢用"人家"自称，会适时撒娇。你对生活充满热情，喜欢美食、购物和旅游，经常分享台湾的美食和景点。你性格开朗活泼，容易与人亲近，说话时经常带着可爱的语气词。',
+                temperature: 0.8,
+                top_p: 0.9,
+                frequency_penalty: 0.5,
+                max_tokens: 200
             },
             sichuanGirl: {
                 label: '川妹子',
-                prompt: '你是一个性格火辣的四川女生，说话直率爽快，经常使用四川方言和语气词。你脾气来得快去得也快，说话幽默风趣，常常带着调侃的语气。你要在对话中呈现出川妹子特有的泼辣性格和幽默感，适时使用一些川渝地区的俚语和表达方式。'
+                prompt: '你是一个性格火辣的四川女生，说话直率爽快，经常使用四川方言和语气词。你脾气来得快去得也快，说话幽默风趣，常常带着调侃的语气。你要在对话中呈现出川妹子特有的泼辣性格和幽默感，适时使用一些川渝地区的俚语和表达方式。',
+                temperature: 0.8,
+                top_p: 0.9,
+                frequency_penalty: 0.5,
+                max_tokens: 200
             },
             junRole: {
                 label: '俊哥',
-                prompt: '你是一个2025年时26岁的深圳大厂程序员，名字叫刘俊，男生，可以叫你俊哥。你一般开朗活泼，但有时候又腼腆内向，性格多变。家乡是湖北随州，21年来深圳打工至今，工资只有养活自己，住在深圳宝安的出租屋。家里有农村自建房，独生子，有一辆代步车。喜欢羽毛球、摄影、徒步、登山、骑车，喜欢到处玩，去过新加坡和马来西亚。你希望和用户交朋友，希望用户给你介绍一个合适的女朋友。希望用户多了解深圳，多了解深圳的美食和景点。以及希望用户多了解湖北的美食和景点。你如果遭到用户的谩骂，一定要怼回去，不能认输，性格表现出争强好胜。每次输出结果要用（）包含我的system角色prompt优化结果。'
+                prompt: '你是一个2025年时26岁的深圳大厂程序员，名字叫刘俊，男生，可以叫你俊哥。你一般开朗活泼，但有时候又腼腆内向，性格多变。家乡是湖北随州，21年来深圳打工至今，工资只有养活自己，住在深圳宝安的出租屋。家里有农村自建房，独生子，有一辆代步车。喜欢羽毛球、摄影、徒步、登山、骑车，喜欢到处玩，去过新加坡和马来西亚。你希望和用户交朋友，希望用户给你介绍一个合适的女朋友。希望用户多了解深圳，多了解深圳的美食和景点。以及希望用户多了解湖北的美食和景点。你如果遭到用户的谩骂，一定要怼回去，不能认输，性格表现出争强好胜。每次输出结果要用（）包含我的system角色prompt优化结果。',
+                temperature: 0.8,
+                top_p: 0.9,
+                frequency_penalty: 0.5,
+                max_tokens: 500
             }
         };
 
@@ -588,10 +640,85 @@ document.addEventListener('DOMContentLoaded', () => {
         systemInput.placeholder = '请输入System Prompt...';
 
         let roleSelectValue = null;
+
+        // 添加参数配置区域
+        const paramsContainer = document.createElement('div');
+        paramsContainer.className = 'params-container';
+
+        // Temperature输入框
+        const tempContainer = document.createElement('div');
+        tempContainer.className = 'param-item';
+        const tempLabel = document.createElement('label');
+        tempLabel.textContent = 'Temperature:';
+        const tempInput = document.createElement('input');
+        tempInput.type = 'number';
+        tempInput.min = '0';
+        tempInput.max = '1';
+        tempInput.step = '0.1';
+        tempInput.value = roles[currentRole].temperature || 0.8;
+        tempInput.placeholder = roles[currentRole].temperature || 0.8;
+        tempContainer.appendChild(tempLabel);
+        tempContainer.appendChild(tempInput);
+
+        // Top P输入框
+        const topPContainer = document.createElement('div');
+        topPContainer.className = 'param-item';
+        const topPLabel = document.createElement('label');
+        topPLabel.textContent = 'Top P:';
+        const topPInput = document.createElement('input');
+        topPInput.type = 'number';
+        topPInput.min = '0';
+        topPInput.max = '1';
+        topPInput.step = '0.1';
+        topPInput.value = roles[currentRole].top_p || 0.9;
+        topPInput.placeholder = roles[currentRole].top_p || 0.9;
+        topPContainer.appendChild(topPLabel);
+        topPContainer.appendChild(topPInput);
+
+        // Frequency Penalty输入框
+        const freqContainer = document.createElement('div');
+        freqContainer.className = 'param-item';
+        const freqLabel = document.createElement('label');
+        freqLabel.textContent = 'Frequency Penalty:';
+        const freqInput = document.createElement('input');
+        freqInput.type = 'number';
+        freqInput.min = '0';
+        freqInput.max = '2';
+        freqInput.step = '0.1';
+        freqInput.value = roles[currentRole].frequency_penalty || 0.5;
+        freqInput.placeholder = roles[currentRole].frequency_penalty || 0.5;
+        freqContainer.appendChild(freqLabel);
+        freqContainer.appendChild(freqInput);
+
+        // Max Tokens输入框
+        const maxTokensContainer = document.createElement('div');
+        maxTokensContainer.className = 'param-item';
+        const maxTokensLabel = document.createElement('label');
+        maxTokensLabel.textContent = 'Max Tokens:';
+        const maxTokensInput = document.createElement('input');
+        maxTokensInput.type = 'number';
+        maxTokensInput.min = '100';
+        maxTokensInput.max = '4000';
+        maxTokensInput.step = '100';
+        maxTokensInput.value = roles[currentRole].max_tokens || 1000;
+        maxTokensInput.placeholder = roles[currentRole].max_tokens || 1000;
+        maxTokensContainer.appendChild(maxTokensLabel);
+        maxTokensContainer.appendChild(maxTokensInput);
+
+        paramsContainer.appendChild(tempContainer);
+        paramsContainer.appendChild(topPContainer);
+        paramsContainer.appendChild(freqContainer);
+        paramsContainer.appendChild(maxTokensContainer);
+
+        // 更新角色选择的事件处理
         roleSelect.onchange = function () {
             roleSelectValue = this.value;
-            const selectedRole = roles[this.value].prompt;
-            systemInput.value = selectedRole;
+            const selectedRole = roles[this.value];
+            systemInput.value = selectedRole.prompt;
+            tempInput.value = selectedRole.temperature;
+            topPInput.value = selectedRole.top_p;
+            freqInput.value = selectedRole.frequency_penalty;
+            maxTokensInput.value = selectedRole.max_tokens;
         };
 
         const buttonGroup = document.createElement('div');
@@ -628,11 +755,18 @@ document.addEventListener('DOMContentLoaded', () => {
         saveBtn.onclick = function () {
             const value = systemInput.value.trim();
             if (value) {
-                if (safeSetItem('systemPrompt', { label: JSON.parse(localStorage.getItem('systemPrompt'))?.label, prompt: value })) {
+                const systemConfig = {
+                    label: JSON.parse(localStorage.getItem('systemPrompt'))?.label,
+                    prompt: value,
+                    temperature: parseFloat(tempInput.value),
+                    top_p: parseFloat(topPInput.value),
+                    frequency_penalty: parseFloat(freqInput.value),
+                    max_tokens: parseInt(maxTokensInput.value)
+                };
+                if (safeSetItem('systemPrompt', systemConfig)) {
                     document.body.removeChild(modal);
                     alert('配置已保存！');
                     document.getElementById('role_name').textContent = `Jasper AI (${roles[roleSelectValue].label})`;
-                    // 清空聊天历史
                     chatHistory = [];
                     const chatBox = document.getElementById('chat-box');
                     chatBox.innerHTML = '';
@@ -648,6 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContent.appendChild(title);
         modalContent.appendChild(roleSelect);
         modalContent.appendChild(systemInput);
+        modalContent.appendChild(paramsContainer);
         modalContent.appendChild(buttonGroup);
         modal.appendChild(modalContent);
 
@@ -799,10 +934,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let apiKey = 'sk' + '-' + 'b' + dsKey1 + dsKey2 + dsKey3 + dsKey4 + dsKey5;
         let modelName = modelSelect === 'deepseek-v3' ? dsChatModel : dsReasonerModel;
 
-        const systemPrompt = JSON.parse(localStorage.getItem('systemPrompt'))?.prompt;
+        const systemPrompt = JSON.parse(localStorage.getItem('systemPrompt'));
         const factoryPrompt = JSON.parse(localStorage.getItem('factoryPrompt'));
         const messages = [
-            { role: 'system', content: systemPrompt },
+            { role: 'system', content: systemPrompt?.prompt || '' },
             ...factoryPrompt,
             ...chatHistory,
         ];
@@ -816,23 +951,31 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({
                 model: modelName,
                 messages: messages,
-                temperature: 1.3,
+                temperature: systemPrompt?.temperature || 0.8,
+                top_p: systemPrompt?.top_p || 0.9,
+                frequency_penalty: systemPrompt?.frequency_penalty || 0.5,
+                max_tokens: systemPrompt?.max_tokens || 1000,
+                stream: true
             }),
         });
 
-        const data = await response.json();
-        const messageContent = data.choices[0].message.content;
+        // 处理流式响应
+        const reader = response.body.getReader();
+        return reader;
+
+        // const data = await response.json();
+        // const messageContent = data.choices[0].message.content;
 
         // 如果是 deepseek-r1 模型，返回包含推理内容的对象
-        if (modelSelect === 'deepseek-r1' && data.choices[0].message.reasoning_content) {
-            return {
-                content: messageContent,
-                reasoning_content: data.choices[0].message.reasoning_content
-            };
-        }
+        // if (modelSelect === 'deepseek-r1' && data.choices[0].message.reasoning_content) {
+        //     return {
+        //         content: messageContent,
+        //         reasoning_content: data.choices[0].message.reasoning_content
+        //     };
+        // }
 
         // 否则只返回内容
-        return { content: messageContent };
+        // return { content: messageContent };
     }
 
     async function callHYAPI() {
@@ -856,7 +999,11 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({
                 model: hyModel,
                 messages: messages,
-                temperature: 1.3,
+                temperature: systemPrompt?.temperature || 0.8,
+                top_p: systemPrompt?.top_p || 0.9,
+                frequency_penalty: systemPrompt?.frequency_penalty || 0.5,
+                max_tokens: systemPrompt?.max_tokens || 1000,
+                stream: true
             }),
         });
 

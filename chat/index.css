@@ -397,15 +397,156 @@ button:hover {
   z-index: 1000;
 }
 
+/* 优化配置模态框样式 */
 .config-modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  max-height: 80vh;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
+}
+
+.config-modal-content h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.role-select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 1px #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.role-select:hover {
+  border-color: #d0d0d0;
+}
+
+.role-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.system-input {
+  width: 96.5%;
+  min-height: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 0 1px #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.system-input:focus {
+  background-color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* 参数配置区域样式 */
+.params-container {
+  background-color: #f8f9fa;
+  padding: 5px;
+  border-radius: 8px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.param-item {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.param-item label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.param-item input {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.param-item input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* 按钮组样式优化 */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.manage-roles-btn {
+  background-color: #4CAF50;
+}
+
+.reset-btn {
+  background-color: #f59e0b;
+}
+
+.save-btn {
+  background-color: #3b82f6;
+}
+
+.button-group button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:active {
+  transform: translateY(0);
 }
 
 .copy-btn {
@@ -507,25 +648,6 @@ button:hover {
 
 .add-btn:hover, .save-btn:hover, .reset-btn:hover {
   opacity: 0.9;
-}
-
-
-/* 添加或修改以下CSS样式 */
-.system-input {
-  width: 100%;
-  min-height: 100px;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 14px;
-  resize: vertical;
-}
-
-.system-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 
 /* 添加角色选择下拉框样式 */
@@ -799,4 +921,29 @@ hr {
 .ai-rely-wrap{
   display: flex;
   flex-direction: column;
+}
+
+.param-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.param-item label {
+  font-size: 14px;
+  color: #333;
+}
+
+.param-item input {
+  width: 100px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.param-item input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
